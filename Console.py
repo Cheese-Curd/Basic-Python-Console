@@ -18,10 +18,21 @@ def main():
     username = ""
     changed = False
     # Defines
+    def alert(type=-1, msg="N/A"):
+        if type == 1: # Success Alert
+            print(f"{tColors.ACCEPTED}SUCCESS: " + msg + f"{tColors.DEFAULT}")
+        elif type == 0: # Warning Alert
+            print(f"{tColors.WARNING}WARNING: " + msg + f"{tColors.DEFAULT}")
+        elif type == -1:
+            print(f"{tColors.WARNING}ALERT: " + msg + f"{tColors.DEFAULT}")
+        else: # Error/Unknown Alert
+            print(f"{tColors.ACCEPTED}ERR: " + msg + f"{tColors.DEFAULT}")
+        msgBeep(type)
+    
     def msgBeep(type):
         if type == 1: # Success Beep
             winsound.Beep(1000, 300)
-        elif type == 0: # Warning Beep
+        elif type == 0 or -1: # Warning Beep
             winsound.Beep(1000, 200)
             winsound.Beep(300, 150)
         else: # Error/Unknown Beep
@@ -33,7 +44,7 @@ def main():
         if vers == 0:
             if loggedOut == False and config['loginSys']:
                 print("Welcome, " + username + "!\n")
-            print(config['name'] +" [ VERSION " + config['version'] + " ]")
+            print(config['name'])
             if config['copyright']:
                 print(config['copyrightTxt'])
 
@@ -56,7 +67,7 @@ def main():
                     loggedOutState = True
                     break
                 else:
-                    print(f"{tColors.WARNING}Logout Canceled{tColors.DEFAULT}")
+                    alert(-1, "Logout Canceled.")
                     return loggedOutState, username, False
             else:
                 break
@@ -67,8 +78,7 @@ def main():
                 try:
                     user = json.load(open("./users/" + usr + "/user.json", "r"))
                 except:
-                    print(f"{tColors.ERR}ERR: Invalid Username.{tColors.DEFAULT}")
-                    msgBeep(-1)
+                    alert(-2, "Invalid Username.")
                     continue
                 else:
 
@@ -76,28 +86,24 @@ def main():
 
                     pas = getpass.getpass()
 
-                    print(f"{tColors.WARNING}Checking...{tColors.DEFAULT}")
+                    alert(-1, "Checking...")
                     time.sleep(1.0)
 
                     if pas == password:
-                        print(f"{tColors.WARNING}Logging in...{tColors.DEFAULT}")
+                        alert(-1, "Logging in...")
                         time.sleep(1.0)
-                        print(f"{tColors.ACCEPTED}Login Accepted.{tColors.DEFAULT}")
-                        msgBeep(1)
+                        alert(1, "Login Accepted.")
                         loggedOutState = False
                     else:
-                        print(f"{tColors.ERR}ERR: Invalid Password.{tColors.DEFAULT}")
-                        msgBeep(-1)
+                        alert(-2, "Invalid Password.")
                         continue
             else:
                 usr = input("Username: ")
                 pas = getpass.getpass()
 
-                print(f"{tColors.WARNING}Logging in...{tColors.DEFAULT}")
+                alert(-1, "Logging in...")
                 time.sleep(1.0)
-
-                print(f"{tColors.ACCEPTED}Login Accepted.{tColors.DEFAULT}")
-                msgBeep(1)
+                alert(1, "Login Accepted.")
                 loggedOutState = False
                 continue
             return loggedOutState, usr, True
