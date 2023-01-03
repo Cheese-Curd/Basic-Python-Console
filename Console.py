@@ -133,7 +133,7 @@ def main():
         
         #print(f"{tColors.DEBUG}DEBUG: COMMAND: " + cmd) # Debug arguments
         #print("DEBUG: ARGUMENTS: " + str(args) + f'{tColors.DEFAULT}') # Debug arguments
-        match cmd:
+        match cmd.lower():
             case "cls": # Clear
                 cls(1)
             case "clear":
@@ -170,7 +170,7 @@ def main():
                 print("   CLS/CLEAR     : Clears the screen.")
                 print("   ECHO          : Echos what you put back into the console.")
             case "echo":
-                print(''.join(args))
+                print(' '.join(args))
             case _: # Default
                 if cmd != "":
                     print(f"{tColors.ERR}ERR: Unkown Command '" + cmd.upper() + f"'{tColors.DEFAULT}")
