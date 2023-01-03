@@ -26,7 +26,7 @@ def main():
         elif type == -1:
             print(f"{tColors.WARNING}ALERT: " + msg + f"{tColors.DEFAULT}")
         else: # Error/Unknown Alert
-            print(f"{tColors.ACCEPTED}ERR: " + msg + f"{tColors.DEFAULT}")
+            print(f"{tColors.ERR}ERR: " + msg + f"{tColors.DEFAULT}")
         msgBeep(type)
     
     def msgBeep(type):
