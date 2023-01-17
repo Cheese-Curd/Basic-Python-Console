@@ -3,8 +3,8 @@ import time # Sleeping
 import os # Running Batch Commands
 import getpass # Password
 import json # Reading JSON Files
-from util/alert import * # Alerts
-from util/tColors import tColors # Import Colors
+from util.alert import * # Alerts
+from util.tColors import tColors # Import Colors
 
 def main():
     # Variables
