@@ -2,15 +2,10 @@
 import time # Sleeping
 import os # Running Batch Commands
 import getpass # Password
-import winsound # Windows Sounds
 import json # Reading JSON Files
-# Classes
-class tColors: # Text Colors
-    ACCEPTED = '\033[92m' # Green
-    WARNING = '\033[93m' # Yellow
-    ERR = '\033[91m' # Red
-    DEFAULT = '\033[0m' # White
-    DEBUG = '\033[0;35m' # Purple
+import util/alert # Alerts
+from util/tColors import tColors # Import Colors
+
 def main():
     # Variables
     loggedOut = True
@@ -18,26 +13,7 @@ def main():
     username = ""
     changed = False
     # Defines
-    def alert(type=-1, msg="N/A"):
-        if type == 1: # Success Alert
-            print(f"{tColors.ACCEPTED}SUCCESS: " + msg + f"{tColors.DEFAULT}")
-        elif type == 0: # Warning Alert
-            print(f"{tColors.WARNING}WARNING: " + msg + f"{tColors.DEFAULT}")
-        elif type == -1:
-            print(f"{tColors.WARNING}ALERT: " + msg + f"{tColors.DEFAULT}")
-        else: # Error/Unknown Alert
-            print(f"{tColors.ERR}ERR: " + msg + f"{tColors.DEFAULT}")
-        msgBeep(type)
     
-    def msgBeep(type):
-        if type == 1: # Success Beep
-            winsound.Beep(1000, 300)
-        elif type == 0 or -1: # Warning Beep
-            winsound.Beep(1000, 200)
-            winsound.Beep(300, 150)
-        else: # Error/Unknown Beep
-            winsound.Beep(300, 300)
-
     def cls(vers=0): # Simple Screen Clear
         print(f"{tColors.DEBUG}~ !Screen Clear! ~{tColors.DEFAULT}")
         os.system('cls' if os.name=='nt' else 'clear')
