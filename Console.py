@@ -27,7 +27,8 @@ def main():
     def shutdownApp(): # Exit App
         cls(1)
         print(f"{tColors.WARNING}Shutting Down...{tColors.DEFAULT}")
-        winsound.Beep(500,600)
+        if config["sounds"]:
+           winsound.Beep(500,600)
         cls(1)
         exit()
 
@@ -90,7 +91,8 @@ def main():
     time.sleep(1.0)
     os.system("title " + config['name'])
     cls()
-    winsound.Beep(500,600)
+    if config["sounds"]:
+       winsound.Beep(500,600)
     if config['loginSys']:
         loggedOut, username, changed = login(loggedOut)
     else:

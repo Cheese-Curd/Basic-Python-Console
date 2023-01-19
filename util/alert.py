@@ -10,7 +10,8 @@ def alert(type=-1, msg="N/A"):
         print(f"{tColors.WARNING}ALERT: " + msg + f"{tColors.DEFAULT}")
     else: # Error/Unknown Alert
         print(f"{tColors.ERR}ERR: " + msg + f"{tColors.DEFAULT}")
-    msgBeep(type)
+    if config["sounds"]:
+       msgBeep(type)
 
 def msgBeep(type):
     if type == 1: # Success Beep
