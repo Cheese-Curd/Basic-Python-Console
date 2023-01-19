@@ -1,6 +1,7 @@
 {
     "loginSys":     false,
     "userSys":      false,
+	"sounds":		true,
     "defaultPerms": "rwa",
     "name":         "Basic Console",
     "copyright":    true, 
