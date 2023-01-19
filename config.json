@@ -1,9 +1,9 @@
 {
-    "loginSys":     true,
-    "userSys":      true,
+    "loginSys":     false,
+    "userSys":      false,
     "defaultPerms": "rwa",
     "name":         "Basic Console",
     "copyright":    true, 
-    "copyrightTxt": "(c) Cheese Curd 2023 (Please open config.JSON)",
-    "version":      "1.1.0"
+    "copyrightTxt": "(c) Cheese Curd 2023 (Please open config.JSON) [LOGIN SYSTEM DISABLED BY DEFAULT]",
+    "version":      "1.3.0"
 }
