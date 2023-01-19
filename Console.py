@@ -144,7 +144,7 @@ def main():
                 print("   RESTART       : Restarts app.")
                 print("   ~ Screen ~")
                 print("   CLS/CLEAR     : Clears the screen.")
-                print("   ECHO          : Echos what you put back into the console.")              
+                print("   ECHO          : Echos what you put back into the console.")
             case "echo":
                 print(' '.join(args))
             case _: # Default
