@@ -150,8 +150,8 @@ def main():
             case _: # Default
                 if cmd != "":
                     print(f"{tColors.ERR}ERR: Unkown Command '" + cmd.upper() + f"'{tColors.DEFAULT}")
-
-main() # Start the app
+if __name__ == "__main__": # Make sure this is running itself
+    main() # Start the app
 # This worked better than expected, I'm honestly kinda surprised!
 # This is also my first semi-big project that I put a lot of effort in, I'd love any constructive criticism.
 # Well, that's it for me. See you later, love you all! ♥

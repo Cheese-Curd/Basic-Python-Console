@@ -1,4 +1,4 @@
-from tColors import tColors # Get tColors Class
+from util.tColors import tColors # Get tColors Class
 import winsound # Windows Sounds
 
 def alert(type=-1, msg="N/A"):
