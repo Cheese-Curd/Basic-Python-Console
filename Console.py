@@ -134,7 +134,7 @@ def main():
                     loggedOut, username, changed = login(loggedOut)
                     loginCheck()
                 else:
-                    print(f"{tColors.ERR}ERR: Unkown Command 'LOGOUT'{tColors.DEFAULT}")
+                    aler(-2, "Unkown Command 'LOGOUT'")
             case "help": # Display Commands
                 print("List of Commands:")
                 print("   ~ System ~")
@@ -149,7 +149,7 @@ def main():
                 print(' '.join(args))
             case _: # Default
                 if cmd != "":
-                    print(f"{tColors.ERR}ERR: Unkown Command '" + cmd.upper() + f"'{tColors.DEFAULT}")
+                    alert(-2, "Unkown Command '" + cmd.upper()")
 if __name__ == "__main__": # Make sure this is running itself
     main() # Start the app
 # This worked better than expected, I'm honestly kinda surprised!
