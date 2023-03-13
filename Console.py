@@ -26,7 +26,7 @@ def main():
 
     def shutdownApp(): # Exit App
         cls(1)
-        print(f"{tColors.WARNING}Shutting Down...{tColors.DEFAULT}")
+        alert(0, "Shutting Down...", False, False)
         if config["sounds"]:
            winsound.Beep(500,600)
         cls(1)
@@ -87,7 +87,7 @@ def main():
 
     # Main Program
     os.system("title LOADING...")
-    print(f"{tColors.WARNING}Loading!{tColors.DEFAULT}")
+    alert(0, "Loading!", False, False)
     time.sleep(1.0)
     os.system("title " + config['name'])
     cls()
@@ -121,7 +121,7 @@ def main():
                 if cmd == "y":
                     main()
                 else:
-                    print(f"{tColors.WARNING}Restart Canceled.{tColors.DEFAULT}")
+                    alert(2, "Restart Canceled.", False, False)
             case "exit": # Exit the application
                 if args[0].lower() == '-y':
                     shutdownApp()
@@ -130,7 +130,7 @@ def main():
                     if cmd == "y":
                         shutdownApp()
                     else:
-                        print(f"{tColors.WARNING}Shutdown Canceled.{tColors.DEFAULT}")
+                        alert(0, "Shutdown Canceled.", False, False)
             case "logout":
                 if config['loginSys']:
                     loggedOut, username, changed = login(loggedOut)
