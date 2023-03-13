@@ -19,3 +19,6 @@ The config is pretty simple, but some things can be confusing.
 `copyrightTxt` is the text you want to print after the name
 
 `version` is the version number of the app
+
+## Want to try to try the application?
+![I made a replit link.](https://replit.com/@Cheese-Curd/Basic-Python-Console-1?v=1)
