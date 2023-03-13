@@ -21,4 +21,4 @@ The config is pretty simple, but some things can be confusing.
 `version` is the version number of the app
 
 ## Want to try to try the application?
-I made a ![replit](https://replit.com/@Cheese-Curd/Basic-Python-Console-1?v=1) link.
+I made a [replit](https://replit.com/@Cheese-Curd/Basic-Python-Console-1?v=1) link.
