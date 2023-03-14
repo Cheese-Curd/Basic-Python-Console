@@ -1,7 +1,7 @@
 {
 	"loginSys":		true,
 	"userSys":		true,
-	"defaultPerms": "rwa",
+	"defaultPerms":		"rwa",
 
 	"sounds":		false,
 
@@ -9,6 +9,6 @@
 	"showVer":		true,
 	"version":		"1.3.3",
 
-	"copyright":	true,
-	"copyrightTxt": "(c) Cheese Curd 2023 [!USER & LOGIN SYSTEM DISABLED BY DEAFAULT, PLEASE OPEN THE CONFIG!]"
+	"copyright":		true,
+	"copyrightTxt":		"(c) Cheese Curd 2023 [!USER & LOGIN SYSTEM DISABLED BY DEAFAULT, PLEASE OPEN THE CONFIG!]"
 }
