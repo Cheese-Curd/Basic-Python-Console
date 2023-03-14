@@ -151,7 +151,7 @@ def main():
                 print(' '.join(args))
             case _: # Default
                 if cmd != "":
-                    alert(-2, "Unkown Command '" + cmd.upper() + "'")
+                    alert(-2, "Unknown Command '" + cmd + "'")
 if __name__ == "__main__": # Make sure this is running itself
     main() # Start the app
 # This worked better than expected, I'm honestly kinda surprised!
