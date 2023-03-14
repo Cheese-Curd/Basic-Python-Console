@@ -16,6 +16,8 @@ The config is pretty simple, but some things can be confusing.
 
 `sounds` - is **Windows exclusive**, it enables beeping
 
+`sleeps` - is if you want unnecessary waits, Python can be fast, but sometimes it's *too* fast
+
 ### App Name
 
 `name` - is the application name, it's for the app window title and it's the name that gets printed when you open the app
