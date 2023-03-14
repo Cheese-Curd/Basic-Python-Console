@@ -58,8 +58,7 @@ def main():
                 os.path.normpath(os.getcwd() + os.sep + os.pardir)
                 usr = input("Username: ")
                 try:
-                    user = json.load(
-                        open("./users/" + usr + "/user.json", "r"))
+                    user = json.load(open("./users/" + usr + "/user.json", "r"))
                 except:
                     alert(-2, "Invalid Username.")
                     continue
@@ -124,8 +123,7 @@ def main():
             case "clear":
                 cls(1)
             case "restart":  # Restart App
-                cmd = input(
-                    f"{tColors.ERR}Are you sure? (Y/N) {tColors.DEFAULT}").lower()
+                cmd = input(f"{tColors.ERR}Are you sure? (Y/N) {tColors.DEFAULT}").lower()
                 if cmd == "y":
                     main()
                 else:
@@ -134,8 +132,7 @@ def main():
                 if args[0].lower() == '-y':
                     shutdownApp()
                 else:
-                    cmd = input(
-                        f"{tColors.ERR}Are you sure? (Y/N) {tColors.DEFAULT}").lower()
+                    cmd = input(f"{tColors.ERR}Are you sure? (Y/N) {tColors.DEFAULT}").lower()
                     if cmd == "y":
                         shutdownApp()
                     else:
