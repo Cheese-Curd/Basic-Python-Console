@@ -6,6 +6,9 @@ import json  # Reading JSON Files
 from util.alert import *  # Alerts
 from util.tColors import tColors  # Import Colors
 
+def sleepCheck(time):
+    if config["sleeps"]:
+        time.sleep(time)
 
 def main():
     # Variables
@@ -22,7 +25,7 @@ def main():
             if loggedOut == False and config['loginSys']:
                 print(f"Welcome, {username}!\n")
             if config["showVer"]:
-                print(f"{config['name']} Version: {config['showVer']}")
+                print(f"{config['name']} Version: {config['version']}")
             else:
                 print(config["name"])
             if config['copyright']:
@@ -69,11 +72,11 @@ def main():
                     pas = getpass.getpass()
 
                     alert(-1, "Checking...")
-                    time.sleep(1.0)
+                    sleepCheck(1.0)
 
                     if pas == password:
                         alert(-1, "Logging in...")
-                        time.sleep(1.0)
+                        sleepCheck(1.0)
                         alert(1, "Login Accepted.")
                         loggedOutState = False
                     else:
@@ -84,7 +87,7 @@ def main():
                 pas = getpass.getpass()
 
                 alert(-1, "Logging in...")
-                time.sleep(1.0)
+                sleepCheck(1.0)
                 alert(1, "Login Accepted.")
                 loggedOutState = False
                 continue
@@ -93,7 +96,7 @@ def main():
     # Main Program
     os.system("title LOADING...")
     alert(0, "Loading!", False, False)
-    time.sleep(1.0)
+    sleepCheck(1.0)
     os.system("title " + config['name'])
     cls()
     if config["sounds"]:
