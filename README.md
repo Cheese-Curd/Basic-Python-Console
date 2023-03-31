@@ -24,7 +24,7 @@ The config is pretty simple, but some things can be confusing.
 
 `sleeps` - is if you want unnecessary waits, Python can be fast, but sometimes it's *too* fast
 
-### App Name
+### App Stuff
 
 `name` - is the application name, it's for the app window title and it's the name that gets printed when you open the app
 
