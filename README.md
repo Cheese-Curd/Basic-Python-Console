@@ -4,13 +4,19 @@ This is a basic Python console that supports commands and custom users
 ## Config
 The config is pretty simple, but some things can be confusing.
 
-### Login
+### System
 
 `loginSys` - is if you want to have a system for logging in
 
 `userSys` - is if you want user data to be local, which enables password checking and username checking
 
 `defaultPerms` - is unused at the moment
+
+`prefix` - prefix for prompt IE: `> help` can turn into `$ help` if you change it to `$`
+
+`changelog` - be allowed to show the changelog in app
+
+`license` - be allowed to show the copyright license in app
 
 ### Other
 
