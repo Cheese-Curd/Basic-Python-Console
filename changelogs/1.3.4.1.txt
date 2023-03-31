@@ -1,0 +1,3 @@
++ Added license command
++ Added changelog config option
++ Added license config option

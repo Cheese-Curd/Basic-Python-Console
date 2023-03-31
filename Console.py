@@ -167,22 +167,36 @@ def main():
                 print("   CLS/CLEAR     : Clears the screen.")
                 print("   ECHO          : Echos what you put back into the console.")
                 print("   ~ Other ~")
-                print("   CHANGELOG     : Shows the latest change log.")
+                if config["changelog"]:
+                  print("   CHANGELOG     : Shows the latest change log.")
+                if config["license"]:
+                  print("   LICENSE     : Shows the copyright license.")
             case "echo":
                 print(' '.join(args))
             case "date":
               Date = date.today().strftime("%a %D")
               print(f"The current date is: {Date}")
             case "changelog":
-              if args[0] == "":
-                args[0] = config["version"]
-              try:
-                log = open(f'changelogs/{args[0]}.txt', 'r')
-              except:
-                print(f"Could not find changelog for version {args[0]}")
+              if config["changelog"]:
+                if args[0] == "":
+                  args[0] = config["version"]
+                try:
+                  log = open(f'changelogs/{args[0]}.txt', 'r')
+                except:
+                  print(f"Could not find changelog for version {args[0]}, try {config['version']}.")
+                else:
+                  print(f"UPDATE {args[0]}")
+                  print(log.read())
               else:
-                print(f"UPDATE {args[0]}")
-                print(log.read())
+                alert(-2, "Unkown Command 'CHANGELOG'")
+            case "license":
+                if config['license']:
+                    if input("Are you sure? (Y/N) ").lower() == "y":
+                      print(open('LICENSE', 'r').read())
+                    else:
+                      alert(0, "Canceled.", False, False)
+                else:
+                    alert(-2, "Unkown Command 'LICENSE'")
             case _:  # Default
                 if cmd != "":
                     alert(-2, "Unknown Command '" + cmd + "'")
