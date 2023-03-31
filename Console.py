@@ -3,12 +3,18 @@ import time  # Sleeping
 import os  # Running Batch Commands
 import getpass  # Password
 import json  # Reading JSON Files
-from util.alert import *  # Alerts
-from util.tColors import tColors  # Import Colors
 
-def sleepCheck(time):
-    if config["sleeps"]:
-        time.sleep(time)
+from datetime import date # Get date
+
+from util.alert import alert  # Alerts
+from util.tColors import tColors  # Import Colors
+config = json.load(open('config.json')) # Config
+if config["sounds"]:
+  import winsound # Windows Sounds
+
+def sleepCheck(Time):
+  if config["sleeps"]:
+    time.sleep(Time)
 
 def main():
     # Variables
@@ -61,7 +67,8 @@ def main():
                 os.path.normpath(os.getcwd() + os.sep + os.pardir)
                 usr = input("Username: ")
                 try:
-                    user = json.load(open("./users/" + usr + "/user.json", "r"))
+                    user = json.load(
+                        open("./users/" + usr + "/user.json", "r"))
                 except:
                     alert(-2, "Invalid Username.")
                     continue
@@ -109,7 +116,7 @@ def main():
 
     # Command System
     while not loggedOut:
-        cmd = input("> ")  # Get command and arguments
+        cmd = input(f"{config['prefix']} ")  # Get command and arguments
         args = cmd.split(" ")  # Split the command and different arguments
         cmd = cmd.lower()  # Convert to lowercase
         # Make sure it only checks the command, not the arguments
@@ -126,7 +133,8 @@ def main():
             case "clear":
                 cls(1)
             case "restart":  # Restart App
-                cmd = input(f"{tColors.ERR}Are you sure? (Y/N) {tColors.DEFAULT}").lower()
+                cmd = input(
+                    f"{tColors.ERR}Are you sure? (Y/N) {tColors.DEFAULT}").lower()
                 if cmd == "y":
                     main()
                 else:
@@ -135,7 +143,8 @@ def main():
                 if args[0].lower() == '-y':
                     shutdownApp()
                 else:
-                    cmd = input(f"{tColors.ERR}Are you sure? (Y/N) {tColors.DEFAULT}").lower()
+                    cmd = input(
+                        f"{tColors.ERR}Are you sure? (Y/N) {tColors.DEFAULT}").lower()
                     if cmd == "y":
                         shutdownApp()
                     else:
@@ -153,18 +162,34 @@ def main():
                     print("   LOGOUT        : Logs out of current account.")
                 print("   EXIT          : Closes app.")
                 print("   RESTART       : Restarts app.")
+                print("   DATE          : Shows current date.")
                 print("   ~ Screen ~")
                 print("   CLS/CLEAR     : Clears the screen.")
                 print("   ECHO          : Echos what you put back into the console.")
+                print("   ~ Other ~")
+                print("   CHANGELOG     : Shows the latest change log.")
             case "echo":
                 print(' '.join(args))
+            case "date":
+              Date = date.today().strftime("%a %D")
+              print(f"The current date is: {Date}")
+            case "changelog":
+              if args[0] == "":
+                args[0] = config["version"]
+              try:
+                log = open(f'changelogs/{args[0]}.txt', 'r')
+              except:
+                print(f"Could not find changelog for version {args[0]}")
+              else:
+                print(f"UPDATE {args[0]}")
+                print(log.read())
             case _:  # Default
                 if cmd != "":
                     alert(-2, "Unknown Command '" + cmd + "'")
 
 
 if __name__ == "__main__":  # Make sure this is running itself
-    main()  # Start the app
+  main()  # Start the app
 # This worked better than expected, I'm honestly kinda surprised!
 # This is also my first semi-big project that I put a lot of effort in, I'd love any constructive criticism.
 # Well, that's it for me. See you later, love you all! ♥

@@ -1,0 +1,6 @@
++ Added 'DATE' command
++ Added Prefix to config, you can now change the console prefix from '>' to anything
++ Added Change log
++ Added 'CHANGELOG' command
+= Fixed winsound import being missing from main file
+= Fixed sleepCheck causing issue with argument name 
