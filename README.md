@@ -14,6 +14,10 @@ The config is pretty simple, but some things can be confusing.
 
 `prefix` - prefix for prompt IE: `> help` can turn into `$ help` if you change it to `$`
 
+`changelog` - be allowed to show the changelog in app
+
+`license` - be allowed to show the copyright license in app
+
 ### Other
 
 `sounds` - is **Windows exclusive**, it enables beeping
